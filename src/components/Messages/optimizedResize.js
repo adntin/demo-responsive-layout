@@ -1,10 +1,9 @@
-
 const callbacks = [];
 let running = false;
 
 // fired on resize event
 function resize() {
-  if (!running) {
+  if (running === false) {
     running = true;
     if (window.requestAnimationFrame) {
       window.requestAnimationFrame(runCallbacks);
@@ -29,22 +28,20 @@ function addCallback(callback) {
   }
 }
 
-
-
 // public method to add additional callback
-const add = function (callback) {
-  if (!callbacks.length) {
+const addResizeEvent = function (callback) {
+  if (callbacks.length === 0) {
     window.addEventListener('resize', resize);
   }
   addCallback(callback);
 }
 
-const destroy = function () {
+const removeResizeEvent = function () {
   window.removeEventListener('resize', resize);
 }
 
 
-export { add, destroy };
+export { addResizeEvent, removeResizeEvent };
 
 // // start process
 // optimizedResize.add(function () {

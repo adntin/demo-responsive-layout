@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import ReactDOM from 'react-dom';
 
+import { addResizeEvent, removeResizeEvent } from './optimizedResize';
 import Wrapper from "./Wrapper";
 import LeftRail from "./LeftRail";
 import Thread from "./Thread";
@@ -20,12 +20,14 @@ class Messages extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("resize", this.onResize);
+    // window.addEventListener("resize", this.onResize);
+    addResizeEvent(this.onResize);
     this.onResize();
   }
 
   componentWillUnmount() {
-    window.removeEventListener("resize", this.onResize);
+    // window.removeEventListener("resize", this.onResize);
+    removeResizeEvent();
   }
 
   onResize() {
@@ -88,9 +90,9 @@ class Messages extends Component {
     }
 
     this.setState({ left, middle, right });
-    localStorage.setItem('conversation_left', left);
-    localStorage.setItem('conversation_middle', middle);
-    localStorage.setItem('conversation_right', right);
+    // localStorage.setItem('conversation_left', left);
+    // localStorage.setItem('conversation_middle', middle);
+    // localStorage.setItem('conversation_right', right);
   }
 
   render() {

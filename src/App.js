@@ -8,7 +8,6 @@ import "./injectGlobal";
 import Home from "./components/Home";
 // import Conversation from "./components/Conversation";
 // import Phone from "./components/Phone";
-// 
 
 class App extends Component {
   render() {
