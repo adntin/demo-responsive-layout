@@ -1,2 +1,5 @@
-<div id="root"></div>
-<div id="modal"></div>
+# change window size
+window.addEventListener("resize", this.onResize);
+
+# resize panel
+document.addEventListener("mousemove", this.onMouseMove);
