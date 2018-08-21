@@ -68,7 +68,9 @@ class Messages extends Component {
         if (left < last_left) {
           middle = 400;
           left = body - nav - middle - right;
-        } else {
+        }
+        // ensure left value too big, because setState is micro task
+        if (left > last_left) {
           left = last_left;
           middle = body - nav - left - right;
         }
@@ -82,7 +84,9 @@ class Messages extends Component {
         if (right < last_right) {
           middle = 400;
           right = body - nav - left - middle;
-        } else {
+        }
+        // ensure right value too big, because setState is micro task
+        if (right > last_right) {
           right = last_right;
           middle = body - nav - left - right;
         }
